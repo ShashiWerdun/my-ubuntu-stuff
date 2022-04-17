@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # execute the below command:
-# dbus-monitor "interface='org.freedesktop.DBus.Properties',member='PropertiesChanged'" | grep --line-buffered "https://open.spotify.com/" | xargs -I '{}' /bin/bash ~/myscripts/mute_spotify_ads.sh {}
+# dbus-monitor "interface='org.freedesktop.DBus.Properties',member='PropertiesChanged'" | grep --line-buffered "https://open.spotify.com/" | xargs -I '{}' /bin/bash ~/my-ubuntu-stuff/my-scripts/mute_spotify_ads.sh {}
 
 # explanation of above command:
 # i looked around for ways to trigger a script whenever spotify's media changed
