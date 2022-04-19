@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # execute the below command:
-# dbus-monitor "interface='org.freedesktop.DBus.Properties',member='PropertiesChanged'" | grep --line-buffered "https://open.spotify.com/" | xargs -I '{}' /bin/bash ~/my-ubuntu-stuff/my-scripts/mute_spotify_ads.sh {}
+# dbus-monitor "interface='org.freedesktop.DBus.Properties',member='PropertiesChanged'" | grep --line-buffered "https://open.spotify.com/" | xargs -I '{}' /bin/bash /home/werdun/my-ubuntu-stuff/my-scripts/mute_spotify_ads.sh {}
+# above command can not be executed directly by running command in a prompt other than terminal for some reason
+# so instead run the file dbus_monitor_for_spotify_ads.sh
 
 # explanation of above command:
 # i looked around for ways to trigger a script whenever spotify's media changed
@@ -17,12 +19,18 @@
 current_media=$1
 spotify_sink_input_index=25
 
-spotify_sink_input_index=$(pactl list sink-inputs | grep "Sink Input\|media.name" | grep -B 1 Spotify | grep -o "[0-9]\+")
+spotify_sink_input_index_string=$(pactl list sink-inputs | grep "Sink Input\|media.name" | grep -B 1 Spotify | grep -o "[0-9]\+")
+
+# spotify creates new clients on desktop whenever we switch from mobile
+# https://community.spotify.com/t5/Desktop-Linux/Spotify-opens-too-many-connections-to-PulseAudio-Linux/m-p/1457757/highlight/true#M3906
+# to recognize the active (latest) client:
+spotify_sink_input_indices=($spotify_sink_input_index_string)
+spotify_active_sink_input_index=${spotify_sink_input_indices[-1]}
 
 if [[ $current_media =~ (ad) ]]; then
-	pactl set-sink-input-volume $spotify_sink_input_index 0%
+	pactl set-sink-input-volume $spotify_active_sink_input_index 0%
 	echo "advertisement: $current_media";
 elif [[ $current_media =~ (track) ]]; then
-	pactl set-sink-input-volume $spotify_sink_input_index 72%
+	pactl set-sink-input-volume $spotify_active_sink_input_index 72%
 	echo "not advertisement: $current_media";
 fi
