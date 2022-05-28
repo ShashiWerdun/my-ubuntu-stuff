@@ -29,6 +29,8 @@ spotify_active_sink_input_index=${spotify_sink_input_indices[-1]}
 
 if [[ $current_media =~ (ad) ]]; then
 	pactl set-sink-input-volume $spotify_active_sink_input_index 0%
+	icon_path="/usr/share/icons/HighContrast/scalable/status/audio-volume-muted.svg"
+	notify-send --icon=$icon_path "$(basename $0)" "Spotify is playing an Ad"
 	echo "advertisement: $current_media";
 elif [[ $current_media =~ (track) ]]; then
 	pactl set-sink-input-volume $spotify_active_sink_input_index 72%
