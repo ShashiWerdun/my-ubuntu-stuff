@@ -17,8 +17,20 @@ for word in $command_output; do
 		paired_devs+=($word)
 		n_paired+=1
 	fi; done
+
+# reverse paired devices list to get latest on top
+result=();
+for word in ${paired_devs[@]}; do
+	word+=(${result[@]})
+	result=(${word[@]})
+done
+
+paired_devs=();
+paired_devs=(${result[@]})
+
+# disconnect any connected device
 for idx in ${!paired_devs[@]}; do
-	dev=${paired_devs[$idx]}
+	dev=${paired_devs[${idx}]}
 	if [[ $(bluetoothctl info $dev) == *'Connected: yes'* ]]; then
 		index=($idx+1)
 		bluetoothctl disconnect $dev
@@ -27,8 +39,13 @@ for idx in ${!paired_devs[@]}; do
 paired_devs_=();
 paired_devs_=${paired_devs[@]:index:n_paired}
 paired_devs_+=(${paired_devs[@]:0:index})
-echo ${paired_devs_[@]}
+
+# connect next available device
 for dev in ${paired_devs_[@]}; do
 	if [[ $(bluetoothctl connect $dev) == *'Connection successful'* ]]; then
+		dev_name_info=$(bluetoothctl info $dev | grep Name)
+		dev_name=${dev_name_info:6}
+		icon_path="/usr/share/icons/HighContrast/48x48/status/bluetooth-active.png"
+		notify-send --icon=$icon_path "$(basename $0)" "connected to $dev_name"
 		break
 	fi; done
