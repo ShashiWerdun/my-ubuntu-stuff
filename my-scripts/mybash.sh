@@ -8,3 +8,6 @@ export PROMPT_DIRTRIM=2
 
 # alias for VSCodium
 alias code=codium
+
+# alias for xclip to copy to system clipboard
+alias "xclip=tr -d '\n'|xclip -selection clipboard"
