@@ -96,9 +96,19 @@ you cannot put the command directly as `tmux` because it is not an app. It can o
 In dconf-editor(installed from apt, cuz flatpak doesnot have required keys), go to `/org/gnome/settings-daemon/plugins/power/`
 and set `critical-battery-action` to `suspend`. Also toggle `use-time-for-policy` to `off`.
 
-# Monitoring fan speed
+# Managing fan speed for better thermals
 
-For Dell laptops: https://www.cyberciti.biz/faq/controlling-dell-fan-speeds-temperature-on-ubuntu-debian-linux/
+I'm using a Dell laptop and these links helped me, especially the second link:
+- https://www.cyberciti.biz/faq/controlling-dell-fan-speeds-temperature-on-ubuntu-debian-linux/
+- https://askubuntu.com/a/1319565/1558273
+
+The second link is thoroughly researched.<br>
+My fan curve:
+- set config(0)   {{0 0}  -1  50  -1  55}
+- set config(1)   {{1 1}  45  60  50  65}
+- set config(2)   {{2 2}  55  70  60  80}
+- set config(3)   {{2 2}  65 128  75 128}
+
 
 # Script for muting spotify ads
 
