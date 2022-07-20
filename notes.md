@@ -1,12 +1,12 @@
 # Important notes:
 
-- Avoid applying permission changes in bulk (messed up once already)
+- Avoid applying permission changes recursively (messed up once already)
 
 # Media control keys not working
 
 Media control keys(next, previous and pause-play) won't control playback. My case they did not work because of chromium browser capturing the keys instead of the spotify application. solution [here](https://askubuntu.com/a/1384986/1558273)
 
-# Time date problem bw windows and linux
+# Time sync bw Windows and Linux
 
 Windows time was wrong everytime I booted. Running the command
 `$ timedatectl set-local-rtc 1`
@@ -122,3 +122,9 @@ My fan curve:
     - pactl
 - script can be found at ~/my-scripts/mute\_spotify\_ads.sh
 - read the comments in the script to understand how to use it
+
+# Analyze boot time
+- `systemd-analyze` is a tool useful to check boot times.
+- `systemd-analyze critical-chain` - (from the manpage) prints a tree of time critical chain of units. It can be used to check how much time services are taking to init.
+
+I disabled the `NetworkManager-wait-online` service, as apparently it wastes time during system boot (source: https://itsfoss.com/check-boot-time-linux/) but did not see any decrease in boot time.
