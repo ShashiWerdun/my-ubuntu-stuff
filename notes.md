@@ -21,11 +21,12 @@ then run
 
 ### Possible customisations:
 
-I removed the GRUB timeout:
+- I removed the GRUB timeout:
 `GRUB_TIMEOUT=-1`
-Can change default entry:
+- Can change default entry:
 `GRUB_DEFAULT=x` \[x is zero indexed\]
-Can also [change the GRUB menu color](https://askubuntu.com/a/82223/1558273)
+- Can also [change the GRUB menu color](https://askubuntu.com/a/82223/1558273)
+- I [changed my grub theme](https://ostechnix.com/change-grub-theme-in-linux/) to [this](https://www.pling.com/p/1230780/)
 
 # Add commands to execute at start of every terminal instance
 
@@ -128,3 +129,28 @@ My fan curve:
 - `systemd-analyze critical-chain` - (from the manpage) prints a tree of time critical chain of units. It can be used to check how much time services are taking to init.
 
 I disabled the `NetworkManager-wait-online` service, as apparently it wastes time during system boot (source: https://itsfoss.com/check-boot-time-linux/) but did not see any decrease in boot time.
+
+# Using old laptop as a server(?)
+So I have this old laptop which was lying around useless. Decided I'll put it to some use. Routers aren't allowed in my hostel, so made it a hotspot. And then I came up on the idea of streaming audio so I can move my actual laptop freely without having to disconnect from my wired speakers.
+### Audio server
+- can probably try [trx](https://www.pogo.org.uk/~mark/trx/) for this, but not available without snap on ubuntu 20.04
+- sources to achieve Ubuntu to Ubuntu audio streaming:
+  - https://askubuntu.com/a/28041/1558273
+  - https://askubuntu.com/a/61920/1558273
+- sources for Windows to Ubuntu audio streaming:
+  - use [scream](https://github.com/duncanthrax/scream), [source](https://www.reddit.com/r/archlinux/comments/i8y196/comment/g1bwfez/).
+- some other interesting resources:
+	- https://partofthething.com/thoughts/multi-room-audio-over-wi-fi-with-pulseaudio-and-raspberry-pis/
+	- https://unix.stackexchange.com/a/1896
+
+### Remote Desktop Connection
+- setup SSH within a LAN: https://askubuntu.com/a/1108044/1558273
+- useful resource for VNC with SSH and about VPNs on [askubuntu](https://askubuntu.com/a/1267978/1558273)
+- To use Remote Desktop from Windows, the host has to be logged out, otherwise we get a black screen. But to use Remmina with VNC plugin, for remote desktop we need the user to be logged in already. To have remote access when the host is logged out, [check this out](https://askubuntu.com/a/649327/1558273)
+
+# PulseAudio config
+- this will make your PulseAudio installation detect your subwoofer: https://gist.github.com/Jiab77/c84cedd53f8471d7dce15671aad8a624
+- other resources about PulseAudio:
+  - https://www.reddit.com/r/Ubuntu/comments/wldjxs/make_sound_great_again/
+  - https://linuxreviews.org/PulseAudio
+- something old maybe worth exploring: [link](https://0pointer.de/lennart/projects/padevchooser/)
