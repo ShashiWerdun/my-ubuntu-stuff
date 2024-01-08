@@ -19,3 +19,10 @@ then
 else
     echo "found vim config at $find_vimrc"
 fi
+
+# bash config
+bashrc_path=`realpath ../config/bashrc`
+echo "appending bashrc source command to ~/bashrc"
+echo -E "" >> ~/.bashrc
+echo -E "# source custom bashrc" >> ~/.bashrc
+echo -E "source $bashrc_path" >> ~/.bashrc
