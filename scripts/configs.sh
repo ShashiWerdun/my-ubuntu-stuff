@@ -1,15 +1,21 @@
 #!/bin/bash
 
 # tmux config
-tmux_config_path=`realpath ./tmux.conf`
-find_tmux_config=`find ~ -name .tmux.conf`
-if [[ ${#find_tmux_config} == 0 ]]; then
+tmux_config_path=`realpath ../config/tmux.conf`
+find_tmux_config=`find ~ -maxdepth 1 -name .tmux.conf`
+if [[ ${#find_tmux_config} -eq 0 ]]
+then
     ln -s $tmux_config_path ~/.tmux.conf
-fi;
+else
+    echo "found tmux config at $find_tmux_config"
+fi
 
 # vim config
-vimrc_path=`realpath ./vimrc`
-find_vimrc=`find ~ -name .vimrc`
-if [[ ${#find_vimrc} == 0 ]]; then
+vimrc_path=`realpath ../config/vimrc`
+find_vimrc=`find ~ -maxdepth 1 -name .vimrc`
+if [[ ${#find_vimrc} -eq 0 ]]
+then
     ln -s $vimrc_path ~/.vimrc
-fi;
+else
+    echo "found vim config at $find_vimrc"
+fi
