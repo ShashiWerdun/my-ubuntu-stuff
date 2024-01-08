@@ -4,10 +4,9 @@
 
 # any commands like setting environment variables etc.
 export PROMPT_DIRTRIM=2
-# export PATH=/home/werdun/Downloads/whatscli-v1.0.11-linux:$PATH
 
 # alias for VSCodium
-alias code=codium
+# alias code=codium
 
 # alias for xclip to copy to system clipboard
 alias "xclip=tr -d '\n'|xclip -selection clipboard"
