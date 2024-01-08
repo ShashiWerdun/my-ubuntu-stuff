@@ -1,12 +1,17 @@
-# these are the commands I add to my bash config at ~/.bashrc
-# make this script executable and source this file at the end of bash config file (add following line)
+# make this script executable and
+# source it at the end of bash config file (add following line)
 # . ~/my-ubuntu-stuff/my-scripts/mybash.sh
 
-# any commands like setting environment variables etc.
+# ENV
 export PROMPT_DIRTRIM=2
 
-# alias for VSCodium
+# system alias
+alias c='clear'
+
+# custom alias start
+
 # alias code=codium
+alias tmux='tmux -u'
 
 # alias for xclip to copy to system clipboard
 alias "xclip=tr -d '\n'|xclip -selection clipboard"
