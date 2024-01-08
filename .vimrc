@@ -19,7 +19,7 @@ set number
 " Highlight cursor line underneath the cursor horizontally.
 color desert
 set cursorline
-hi CursorLine term=bold cterm=bold guibg=Grey40
+hi CursorLine cterm=bold ctermbg=232
 
 " Highlight cursor line underneath the cursor vertically.
 set cursorcolumn
