@@ -16,13 +16,14 @@ syntax on
 " Add numbers to each line on the left-hand side.
 set number
 
-" Highlight cursor line underneath the cursor horizontally.
 color desert
+" Highlight cursor line underneath the cursor horizontally.
 set cursorline
-hi CursorLine cterm=bold ctermbg=232
+highlight cursorline cterm=bold ctermbg=236
 
 " Highlight cursor line underneath the cursor vertically.
 set cursorcolumn
+highlight cursorcolumn ctermbg=236
 
 " Set shift width to 4 spaces.
 set shiftwidth=4

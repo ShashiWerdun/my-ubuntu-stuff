@@ -26,7 +26,9 @@ then run
 - Can change default entry:
 `GRUB_DEFAULT=x` \[x is zero indexed\]
 - Can also [change the GRUB menu color](https://askubuntu.com/a/82223/1558273)
-- I [changed my grub theme](https://ostechnix.com/change-grub-theme-in-linux/) to [this](https://www.pling.com/p/1230780/)
+- [change grub theme](https://github.com/jacksaur/Gorgeous-GRUB)
+- @TODO put grub themes in this repo and include in [setup](./scripts/setup.sh)
+- @TODO automate cycling through grub themes at startup
 
 # Add commands to execute at start of every terminal instance
 
