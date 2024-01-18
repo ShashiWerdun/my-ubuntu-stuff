@@ -1,0 +1,18 @@
+[org/gnome/settings-daemon/plugins/media-keys]
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
+
+[org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0]
+binding='<Shift><Alt>t'
+command='gnome-terminal -e tmux'
+name='tmux'
+
+[org/gnome/desktop/wm/keybindings]
+move-to-monitor-down=['<Shift><Super>KP_Down']
+move-to-monitor-left=['<Shift><Super>KP_Left']
+move-to-monitor-right=['<Shift><Super>KP_Right']
+move-to-monitor-up=['<Shift><Super>KP_Up']
+move-to-workspace-left=['<Shift><Super>Left']
+move-to-workspace-right=['<Shift><Super>Right']
+panel-run-dialog=['<Super>r']
+switch-to-workspace-left=['<Primary><Super>Left']
+switch-to-workspace-right=['<Primary><Super>Right']

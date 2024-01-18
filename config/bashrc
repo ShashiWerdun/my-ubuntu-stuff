@@ -1,6 +1,4 @@
-# make this script executable and
-# source it at the end of bash config file (add following line)
-# . ~/my-ubuntu-stuff/my-scripts/mybash.sh
+# make this script executable and source it at end of ~/.bashrc
 
 # ENV
 export PROMPT_DIRTRIM=2
@@ -15,3 +13,5 @@ alias tmux='tmux -u'
 
 # alias for xclip to copy to system clipboard
 alias "xclip=tr -d '\n'|xclip -selection clipboard"
+
+##
