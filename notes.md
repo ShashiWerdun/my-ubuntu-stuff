@@ -156,3 +156,9 @@ So I have this old laptop which was lying around useless. Decided I'll put it to
   - https://www.reddit.com/r/Ubuntu/comments/wldjxs/make_sound_great_again/
   - https://linuxreviews.org/PulseAudio
 - something old maybe worth exploring: [link](https://0pointer.de/lennart/projects/padevchooser/)
+
+# Bluetooth devices with Dual boot setup
+1. pair in Ubuntu
+2. pair in Windows
+3. get the Windows pairing key
+4. use Windows pairing key in Ubuntu
